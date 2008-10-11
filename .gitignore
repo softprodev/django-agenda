@@ -3,6 +3,5 @@
 .DS\_Store
 *.sqlite
 *.sw?
-media
-portnumber
+demo/media
 
