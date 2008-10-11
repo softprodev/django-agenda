@@ -3,10 +3,6 @@
 from os import path
 PROJECT_ROOT = path.dirname(__file__)
 
-# First, update the PYTHONPATH to find our dependencies
-import sys
-sys.path.append(path.join(PROJECT_ROOT,'..','deps'))
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -21,11 +17,11 @@ if DEBUG:
     DATABASE_NAME = path.join(PROJECT_ROOT, 'database.sqlite')             # Or path to database file if using sqlite3.
 else:
     assert False, 'Database not configured!'
-    DATABASE_ENGINE = ''
+    DATABASE_ENGINE = 'mysql'
     DATABASE_NAME = ''
     DATABASE_USER = ''             # Not used with sqlite3.
     DATABASE_PASSWORD = ''         # Not used with sqlite3.
-    DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
+    DATABASE_HOST = 'mysql.visualspace.nl'             # Set to empty string for localhost. Not used with sqlite3.
     DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
 # Local time zone for this installation. Choices can be found here:
@@ -73,9 +69,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.middleware.doc.XViewMiddleware',
-    'djangologging.middleware.LoggingMiddleware',
-    
 )
 
 ROOT_URLCONF = 'urls'
@@ -84,22 +77,9 @@ TEMPLATE_DIRS = (
     path.join(PROJECT_ROOT, 'templates')
 )
 
-from socket import gethostname, gethostbyname
-
 INTERNAL_IPS = ( '127.0.0.1', 
-                 gethostbyname(gethostname()))
-
-# djangologging
-LOGGING_OUTPUT_ENABLED = True
-LOGGING_LOG_SQL = False
-LOGGING_INTERCEPT_REDIRECTS = False
-
-# Log debug messages to standard output
-if DEBUG:
-    import logging
-    logging.basicConfig(level=logging.DEBUG,
-                        format='%(asctime)s %(levelname)-8s %(message)s',
-                        datefmt='[%d/%b/%Y %H:%M:%S]')
+                 '212.204.202.13',
+                 '213.211.166.226')
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -107,7 +87,5 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'django.contrib.admindocs',
-    'agenda'
 )
 

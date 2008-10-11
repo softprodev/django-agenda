@@ -6,14 +6,14 @@ admin.autodiscover()
 
 if settings.DEBUG:
     from os import path
-    urlpatterns = patterns('django.views', (r'^static/(?P<path>.*)$', 'static.serve', {'document_root': path.join(settings.PROJECT_ROOT, 'static') }))
+    urlpatterns = patterns('django.views', r'^static/(?P<path>.*)$', 'static.serve', {'document_root': path.join(settings.PROJECT_ROOT, 'static') }),
 else:
     urlpatterns = patterns('')
 
-urlpatterns += patterns('',
+urlpatterns = patterns('',
+    #(r'^/', include('foo.urls')),
+
     # Django Admin
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    (r'^admin/(.*)', admin.site.root),
-    
-    (r'^/', include('agenda.urls')),
+    (r'^admin/(.*)', admin.site.root)
 )
