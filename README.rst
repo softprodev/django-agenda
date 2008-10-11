@@ -1,30 +1,39 @@
-Starting a project based on this project
-========================================
-   git clone git://github.com/dokterbob/django-project-base.git <my_app>
-   
-   git checkout -b <my_app>
+What is it?
+===========
+The django-agenda app is a generic
+implementation of a web-based calendar
+with events.
 
-Updating your project from the base
------------------------------------
-   git pull
-   
-   git merge master
+Status
+======
+Django-agenda is currently **not yet stable enough**
+for production or any other use whatsoever.
 
-Using this base project within another app
-==========================================
-   git clone <my_app_url> <my_app>
+Feautures
+=========
+** SOMEHOW all the useful code got lost and I am
+swearing RIGHT NOW **
+Current
+---------
+- Slick & userfriendly admin interface.
+- Skeleton demo application.
+- Full event archive.
 
-   git remote add -f django-project-base git://github.com/dokterbob/django-project-base.git
-   
-   git merge -s ours --no-commit django-project-base/master
-   
-   git read-tree --prefix=demo/ -u django-project-base/master
-   
-   git commit -m "Merge django-project-base project as demo"
+Expected
+--------
+- Automatic author registration 'Posted by so-and-so'.
+- iCal/Google Calendar/Outlook export.
+- Feeds.
+- Sitemaps.
+- Browseable calendar.
 
-(This is the 'subtree merge strategy, see: 
-http://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html )
+Requirements
+============
+All requirements are currently included in the "deps" directory.
+- django-logging
+- django-representations
 
-Updating your project from the base
------------------------------------
-   git pull -s subtree django-project-base master
+License
+=======
+The django-agenda app is released 
+under the GPL version 3.
