@@ -1,30 +1,53 @@
-Starting a project based on this project
-========================================
-   git clone git://github.com/dokterbob/django-project-base.git <my_app>
-   
-   git checkout -b <my_app>
+=============
+django-agenda
+=============
 
-Updating your project from the base
------------------------------------
-   git pull
-   
-   git merge master
+What is it?
+===========
+The django-agenda app is a generic
+implementation of a web-based calendar
+with events.
 
-Using this base project within another app
-==========================================
-   git clone <my_app_url> <my_app>
+Status
+======
+Django-agenda is currently stable enough for beta testing.
+As much as I would love people using it right now, I have not
+taken it into production myself and therefore would not swear
+over its stability.
 
-   git remote add -f django-project-base git://github.com/dokterbob/django-project-base.git
-   
-   git merge -s ours --no-commit django-project-base/master
-   
-   git read-tree --prefix=demo/ -u django-project-base/master
-   
-   git commit -m "Merge django-project-base project as demo"
+Feautures
+=========
+Current
+---------
+- Full post-1.0 support, currently used on Django trunk.
+- Kind admin interface with automatic author assignment (Django User).
+- More elegant date_based generic view implementation. Finally you get all the info a decent archive will require. 
+- Demo project with very basic templates.
+- Event archive.
+- Browseable calendar based on Python's calendar module.
+- django.contrib.comments support
+- django.contrib.sites support (with default value in admin)
+- Event and comment feeds.
+- Sitemaps.
+- Fully localizable; all strings are translatable.
+- vCard iCalendar export, timezone aware and all!
 
-(This is the 'subtree merge strategy, see: 
-http://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html )
+Future
+------
+- User contributed events.
+- Repeated events
 
-Updating your project from the base
------------------------------------
-   git pull -s subtree django-project-base master
+Models
+======
+.. image:: graph_models.png
+
+Requirements
+============
+All requirements are currently included in the "deps" directory.
+- django-logging
+- vobject
+
+License
+=======
+The django-agenda app is released 
+under the GPL version 3.

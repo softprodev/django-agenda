@@ -1,8 +1,7 @@
 *.o
 *.pyc
-.DS\_Store
+.DS_Store
 *.sqlite
 *.sw?
-media
-portnumber
+demo/media
 
